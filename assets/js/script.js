@@ -22,7 +22,7 @@ async function getApiGithub() {
         // PASSO 3: Criar o HTML/CSS com os dados do Perfil
 
 
-        let = conteudo = ` 
+        let conteudo = ` 
         
             <figure class="about_image">
                 <img
@@ -115,3 +115,49 @@ formulario.addEventListener('submit', function(event) {
 // Chamar a função geApiGithub()
 
 getApiGithub();
+
+// Função para criar folhas caindo
+function criarFolhas() {
+    const numFolhas = 15;
+    
+    for (let i = 0; i < numFolhas; i++) {
+        setTimeout(() => {
+            criarFolha();
+        }, i * 1000);
+    }
+    
+    setInterval(() => {
+        criarFolha();
+    }, 3000);
+}
+
+function criarFolha() {
+    const folha = document.createElement('div');
+    folha.className = 'folha';
+    
+    folha.style.left = Math.random() * 100 + '%';
+    
+    const tamanho = Math.random() * 15 + 20;
+    folha.style.width = tamanho + 'px';
+    folha.style.height = tamanho + 'px';
+    
+    const duracao = Math.random() * 5 + 8;
+    folha.style.animationDuration = duracao + 's';
+    folha.style.animationDelay = Math.random() * 2 + 's';
+    
+    const cores = [
+        'linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #fbb03b 100%)',
+        'linear-gradient(135deg, #d32f2f 0%, #f57c00 50%, #ffa726 100%)',
+        'linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%)',
+        'linear-gradient(135deg, #ff8a65 0%, #ffb74d 50%, #ffd54f 100%)'
+    ];
+    folha.style.background = cores[Math.floor(Math.random() * cores.length)];
+    
+    document.body.appendChild(folha);
+    
+    setTimeout(() => {
+        folha.remove();
+    }, duracao * 1000);
+}
+
+window.addEventListener('load', criarFolhas);
