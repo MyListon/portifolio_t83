@@ -40,6 +40,7 @@ async function getApiGithub() {
                 <div class="stats-wrapper">
                 <div class="about_stats">
                     <a href="${perfilJson.html_url}" class="botao" target="_blank">Ver GitHub</a>
+                    <a href="https://blogpessoal-react-mu.vercel.app" class="botao" target="_blank">Blog Pessoal</a>
                     <div class="stat_item">
                         <p class="stat_number">${perfilJson.followers}</p>
                         <p class="stat_label">Seguidores</p>
